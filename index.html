@@ -64,7 +64,7 @@ var Element = function ( id, x, y, z, ry ) {
 		renderer.domElement.style.position = 'absolute';
 		renderer.domElement.style.top = 0;
    
-        
+        renderer.xr.enabled = true;
 
 		container.appendChild( renderer.domElement );
 		var group = new THREE.Group();
