@@ -30,7 +30,8 @@ body {
    
 </body>
 
-<script>
+<script type="module">
+    import { ARButton } from 'https://unpkg.com/three/examples/jsm/webxr/ARButton.js';
     var camera, scene, renderer;
 var controls;
 
@@ -62,7 +63,9 @@ var Element = function ( id, x, y, z, ry ) {
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		renderer.domElement.style.position = 'absolute';
 		renderer.domElement.style.top = 0;
-        renderer.xr.enabled = true;
+   
+        
+
 		container.appendChild( renderer.domElement );
 		var group = new THREE.Group();
 		group.add( new Element( '5oMmYhp0yKw?autoplay=1&mute=0"', 0, 0, 240, 0 ) );
@@ -72,6 +75,10 @@ var Element = function ( id, x, y, z, ry ) {
 		scene.add( group );
 		controls = new THREE.TrackballControls( camera );
 		controls.rotateSpeed = 4;
+
+        const button = ARButton.createButton(renderer);
+        document.body.appendChild(button)
+
 		window.addEventListener( 'resize', onWindowResize, false );
     
 		// Block iframe events when dragging camera
